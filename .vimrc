@@ -159,6 +159,7 @@ let g:tagbar_right=1
 ""选择后自动关闭
 let g:tagbar_autoclose=1
 Plugin 'vim-scripts/mru.vim'
+Plugin 'gosukiwi/vim-atom-dark'
 call vundle#end()
 filetype plugin indent on     " required!
 let g:ycm_disable_signature_help = 1
