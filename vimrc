@@ -9,6 +9,7 @@
 "<F6>查看最近打开文件
 "<F7>打开树形结构目录
 "<F8>一键格式化python代码
+"<F9>打开/关闭粘贴不变形
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-L> <C-W><C-L>
@@ -17,6 +18,7 @@ nnoremap <C-H> <C-W><C-H>
 "Ctrl-k 切换到上方的分割窗口
 "Ctrl-l 切换到右侧的分割窗口
 "Ctrl-h 切换到左侧的分割窗口
+set pastetoggle=<F9>
 set clipboard=unnamed
 set t_Co=256'
 set background=dark
