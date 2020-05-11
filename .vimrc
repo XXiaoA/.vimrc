@@ -78,7 +78,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-powerline'      "状态栏主题
 let g:Powerline_colorscheme='solarized256'   "设置状态栏主题风格"
 Bundle 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 1
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
@@ -161,9 +161,6 @@ let g:tagbar_autoclose=1
 Plugin 'vim-scripts/mru.vim'
 Plugin 'gosukiwi/vim-atom-dark'
 call vundle#end()
-filetype plugin indent on     " required!
-let g:ycm_disable_signature_help = 1
-let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR> "F8一键格式化python代码
 map <F4> <leader>ci <CR> "可视化模式选择文本f4增加/取消注释"
