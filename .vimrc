@@ -6,8 +6,8 @@
 "<F3>打开函数/变量 成员列表
 "<F4>对当行一键注释，可视化模式选择文本<F2>多行注释
 "<F5>一键运行c/cpp/python
-"<F6>查看最近打开文件
-"<F7>打开树形结构目录
+"<F6>打开树形结构目录
+"<F7>查看最近打开文件
 "<F8>一键格式化python代码
 "<F9>打开/关闭粘贴不变形
 nnoremap <C-K> <C-W><C-K>
@@ -44,7 +44,8 @@ set ruler
 set showmatch
 set incsearch
 set ignorecase
-set nobackup
+set nobackup " 没有~后缀文件
+set undodir=~/.undodir
 set showmode
 set wildmenu
 set cursorline"高亮当行
@@ -148,7 +149,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'Yggdroot/LeaderF'
 Plugin 'scrooloose/nerdtree'
 "f7打开文件树形结构列表
-nmap <F7> :NERDTreeToggle<CR>
+nmap <F6> :NERDTreeToggle<CR>
 Plugin 'majutsushi/tagbar'
 "f3打开函数列表
 nmap <F3> :TagbarToggle<CR>
@@ -164,6 +165,6 @@ call vundle#end()
 set completeopt-=preview
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR> "F8一键格式化python代码
 map <F4> <leader>ci <CR> "可视化模式选择文本f4增加/取消注释"
-noremap <F6> :MRU <CR>
+noremap <F7> :MRU <CR>
 "colorscheme atom-dark-256
 colorscheme atom-dark-256
