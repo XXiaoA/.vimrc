@@ -20,7 +20,7 @@ nnoremap <C-H> <C-W><C-H>
 "Ctrl-h 切换到左侧的分割窗口
 set pastetoggle=<F9>
 set clipboard=unnamed
-set t_Co=256'
+set t_Co=256
 set background=dark
 filetype plugin on
 set mouse-=a
@@ -44,7 +44,7 @@ set ruler
 set showmatch
 set incsearch
 set ignorecase
-set nobackup " 没有~后缀文件
+set nobackup 
 set undodir=~/.undodir
 set showmode
 set wildmenu
@@ -76,48 +76,15 @@ set nocompatible "关闭兼容模式
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'Lokaltog/vim-powerline'      "状态栏主题
 let g:Powerline_colorscheme='solarized256'   "设置状态栏主题风格"
-Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
-let g:ycm_show_diagnostics_ui = 1
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_cache_omnifunc=0
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_char='|'                   "缩进指示线符
 let g:indentLine_enabled = 1             "开启缩进指示"
-Plugin 'w0rp/ale'
-"异步语法检查"
-set fenc=
-let g:ale_set_highlights = 0
-"自定义error和warning图标
-"let g:ale_sign_error = '✗'
-"let g:ale_sign_warning = '⚡'
-""在vim自带的状态栏中整合ale
-"let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK'    ]
-"显示Linter名称,出错或警告等相关信息
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-""打开文件时不进行检查
-let g:ale_lint_on_enter = 0
-
-"普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告"
-nmap sp <Plug>(ale_previous_wrap)
-nmap sn <Plug>(ale_next_wrap)
-""<Leader>s触发/关闭语法检查
-nmap <Leader>s :ALEToggle<CR>
-"<Leader>d查看错误或警告的详细信息
-nmap <Leader>d :ALEDetail<CR>
-""使用clang对c和c++进行语法检查，对python使用flake8进行语法检查
-let g:ale_linters = {
-\   'c++': ['clang'],
-\   'c': ['clang'],
-\   'python': ['flake8'],
-\}
-let g:ale_python_flake8_options = "--max-line-length=1000""
 Plugin 'jiangmiao/auto-pairs'
-" 增加补全规则1：逗号后补全空格。例如，输入：','，输出：', '
+" 增加补全规则
+let g:AutoPairs = {'<':'>','(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"} 
 Plugin 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -146,9 +113,9 @@ au Syntax * RainbowParenthesesLoadBraces
 Plugin 'tell-k/vim-autopep8'
 let g:autopep8_disable_show_diff=1
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'Yggdroot/LeaderF'
+Plugin 'Yggdroot/LeaderF'
 Plugin 'scrooloose/nerdtree'
-"f7打开文件树形结构列表
+"<F6>打开文件树形结构列表
 nmap <F6> :NERDTreeToggle<CR>
 Plugin 'majutsushi/tagbar'
 "f3打开函数列表
@@ -160,11 +127,45 @@ let g:tagbar_right=1
 ""选择后自动关闭
 let g:tagbar_autoclose=1
 Plugin 'vim-scripts/mru.vim'
-Plugin 'gosukiwi/vim-atom-dark'
+noremap <F7> :MRU <CR>
+Plugin 'w0rp/ale'
+"异步语法检查"
+set fenc=
+let g:ale_set_highlights = 0
+"自定义error和warning图标
+"let g:ale_sign_error = '✗'
+"let g:ale_sign_warning = '⚡'
+""在vim自带的状态栏中整合ale
+"let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK'    ]
+"显示Linter名称,出错或警告等相关信息
+let g:ale_echo_msg_error_str = 'Error'
+let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+""打开文件时不进行检查
+let g:ale_lint_on_enter = 0
+
+"普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告"
+nmap sp <Plug>(ale_previous_wrap)
+nmap sn <Plug>(ale_next_wrap)
+""<Leader>s触发/关闭语法检查
+nmap <Leader>s :ALEToggle<CR>
+"<Leader>d查看错误或警告的详细信息
+nmap <Leader>d :ALEDetail<CR>
+""使用clang对c和c++进行语法检查，对python使用flake8进行语法检查
+let g:ale_linters = {
+\   'c++': ['clang'],
+\   'c': ['clang'],
+\   'python': ['flake8'],
+\}
+let g:ale_python_flake8_options = "--max-line-length=1000""
+
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_cache_omnifunc=0
 call vundle#end()
 set completeopt-=preview
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR> "F8一键格式化python代码
 map <F4> <leader>ci <CR> "可视化模式选择文本f4增加/取消注释"
-noremap <F7> :MRU <CR>
-"colorscheme atom-dark-256
 colorscheme atom-dark-256
