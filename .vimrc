@@ -84,7 +84,7 @@ let g:indentLine_char='|'                   "缩进指示线符
 let g:indentLine_enabled = 1             "开启缩进指示"
 Plugin 'jiangmiao/auto-pairs'
 " 增加补全规则
-let g:AutoPairs = {'<':'>','(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"} 
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"} 
 Plugin 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
