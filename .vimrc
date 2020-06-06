@@ -67,6 +67,8 @@ func! CompileRunGcc()
         exec '!./%<'
     elseif &filetype == 'python'
         exec '!python %'
+    elseif &filetype == 'javascript'
+        exec '!node %'
     endif
 endfunc!
 
