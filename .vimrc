@@ -55,7 +55,7 @@ set encoding=utf-8 "编码使用utf-8
 set fdm=marker "代码折叠模式
 set completeopt-=preview
 "}}}
-"{{{一键编译
+ "{{{一键编译
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
@@ -63,9 +63,11 @@ func! CompileRunGcc()
         exec '!clang % -o %<'
         exec '!./%<'
     elseif &filetype == 'cpp'
-        exec '!clang++ % -o %<'
+        exec '!g++ % -o %<'
         exec '!./%<'
     elseif &filetype == 'python'
+        exec '!python %'
+    elseif &filetype == 'pyc'
         exec '!python %'
     elseif &filetype == 'javascript'
         exec '!node %'
@@ -99,7 +101,7 @@ Plugin 'jiangmiao/auto-pairs'
 " 增加补全规则
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"} 
 "}}}  
-"{{{彩 色括号
+"{{{彩色括号
 Plugin 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
