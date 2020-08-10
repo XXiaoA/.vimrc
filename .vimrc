@@ -66,16 +66,16 @@ func! CompileRunGcc()
         exec '!g++ % -o %<'
         exec '!./%<'
     elseif &filetype == 'python'
-        exec '!python %'
+        exec '!python3 %'
     elseif &filetype == 'pyc'
-        exec '!python %'
+        exec '!python3 %'
     elseif &filetype == 'javascript'
         exec '!node %'
     elseif &filetype == 'sh'
         exec '!sh %'
     endif
 endfunc!
-"}}}
+ "}}}
 "{{{插件
 filetype plugin indent on
 set nocompatible "关闭兼容模式
@@ -89,7 +89,8 @@ colorscheme atom-dark-256
 "}}}
 "{{{状态栏主题
 Plugin 'Lokaltog/vim-powerline'      "状态栏主题
-let g:Powerline_colorscheme='solarized256'   "设置状态栏主题风格"
+let g:Powerline_colorscheme='solarized256'   "设置状态栏主题风格
+set laststatus=2
 "}}}
 "{{{缩进线
 Plugin 'Yggdroot/indentLine'
