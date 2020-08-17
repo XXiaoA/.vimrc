@@ -70,7 +70,7 @@ func! CompileRunGcc()
     elseif &filetype == 'pyc'
         exec '!python3 "%"'
     elseif &filetype == 'java'
-        exec 'javac "%"'
+        exec '!javac "%"'
         exec '!java %<'
     elseif &filetype == 'javascript'
         exec '!node "%"'
