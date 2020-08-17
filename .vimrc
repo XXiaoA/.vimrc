@@ -66,16 +66,19 @@ func! CompileRunGcc()
         exec '!g++ % -o %<'
         exec '!./%<'
     elseif &filetype == 'python'
-        exec '!python3 %'
+        exec '!python3 "%"'
     elseif &filetype == 'pyc'
-        exec '!python3 %'
+        exec '!python3 "%"'
+    elseif &filetype == 'java'
+        exec 'javac "%"'
+        exec '!java %<'
     elseif &filetype == 'javascript'
-        exec '!node %'
+        exec '!node "%"'
     elseif &filetype == 'sh'
-        exec '!sh %'
+        exec '!sh "%"'
     endif
 endfunc!
- "}}}
+"}}}
 "{{{插件
 filetype plugin indent on
 set nocompatible "关闭兼容模式
@@ -95,7 +98,7 @@ set laststatus=2
 "{{{缩进线
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_char='|'                   "缩进指示线符
-let g:indentLine_enabled = 1             "开启缩进指示"
+let g:indentLine_enabled = 1             "开启缩进指示
 "}}}
 "{{{括号补全
 Plugin 'jiangmiao/auto-pairs'
